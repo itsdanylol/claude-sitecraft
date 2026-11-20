@@ -38,7 +38,7 @@ Framework specifics, port defaults and the failure modes worth knowing: [referen
 
 The script proves three things and nothing more: a process started, a port answered, a page rendered. What it cannot tell you:
 
-- whether the layout is right at 375, 768 and 1440 (use `unswappable/scripts/verify.mjs` for that)
+- whether the layout is right at 375, 768 and 1440 (use `sitecraft/scripts/verify.mjs` for that)
 - whether the console is clean (it is not captured here; `verify.mjs` captures it)
 - whether the page it screenshotted is the page the user meant (check the URL against the route you asked for)
 

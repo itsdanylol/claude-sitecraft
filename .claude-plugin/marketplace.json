@@ -1,11 +1,11 @@
 {
-  "name": "unswappable",
+  "name": "claude-sitecraft",
   "owner": {
     "name": "itsdanylol"
   },
   "plugins": [
     {
-      "name": "unswappable",
+      "name": "sitecraft",
       "source": "./",
       "description": "Websites that don't look AI-generated: concept-first design, a blind AI critic, whole-site state and motion checks, and before/after images."
     }

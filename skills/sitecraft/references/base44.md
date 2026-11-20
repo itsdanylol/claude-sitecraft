@@ -55,5 +55,5 @@ Passwords are 8 to 72 bytes. Rate limits are per IP. Users cannot sign in until 
 
 - Read the app's `AGENTS.md` and keep its framework. Never move it to another framework or router.
 - Make exact changes with the file tools (`read_file`, `edit_file`, `write_file`). Use the builder AI only for changes that still need designing. Never use both on the same change, and never edit while the app's status is `processing`.
-- Call `create_checkpoint` after each set of edits. Use `GET /api/apps/{app_id}/sandbox/preview-url` to review the work, and run the whole unswappable review on that preview.
+- Call `create_checkpoint` after each set of edits. Use `GET /api/apps/{app_id}/sandbox/preview-url` to review the work, and run the whole sitecraft review on that preview.
 - Publish (`POST /api/apps/{app_id}/deploy`) only with the owner's yes.

@@ -1,6 +1,6 @@
 # Kettle Notes — site brief (design demo)
 
-Kettle Notes is a **fictional product** made up for a unswappable demo. Nothing here is a real customer, price or number. The site says so on the page.
+Kettle Notes is a **fictional product** made up for a sitecraft demo. Nothing here is a real customer, price or number. The site says so on the page.
 
 ## Dossier
 

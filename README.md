@@ -1,22 +1,22 @@
-# Unswappable: a Claude Code skill for websites that don't look AI-generated
+# Claude Sitecraft: a Claude Code skill for websites that don't look AI-generated
 
-**Unswappable is an open-source Claude Code skill and plugin that designs, builds or redesigns a whole website around one idea only your product could use.** Swap in a competitor's logo and the site stops making sense. That's the test every design has to pass.
+**Claude Sitecraft is an open-source Claude Code skill and plugin that designs, builds or redesigns a whole website around one idea only your product could use.** Swap in a competitor's logo and the site stops making sense. That's the test every design has to pass.
 
-Most AI-built and vibe-coded websites look the same: a centered hero, a purple gradient, three feature cards, the Inter font. Unswappable starts from what your product *is*, builds every page and state from that idea, adds real motion, and has a fresh AI critic judge the result blind from screenshots. Then it checks accessibility, SEO and speed. On a redesign it ends with a before/after image for every page.
+Most AI-built and vibe-coded websites look the same: a centered hero, a purple gradient, three feature cards, the Inter font. Sitecraft starts from what your product *is*, builds every page and state from that idea, adds real motion, and has a fresh AI critic judge the result blind from screenshots. Then it checks accessibility, SEO and speed. On a redesign it ends with a before/after image for every page.
 
-![Before and after: a website redesign made with the Unswappable Claude Code skill](docs/images/kettle-notes-before-after-desktop.png)
+![Before and after: a website redesign made with the Sitecraft Claude Code skill](docs/images/kettle-notes-before-after-desktop.png)
 
 ## Before and after: a full redesign
 
 **Kettle Notes** is a fictional tasting journal for tea shops, made up for this demo. The "before" is the first version made by an earlier, template-driven version of this skill. The "after" is the redesign. Its idea is *the page steeps like tea*: the six sections are six infusions, so the page's color deepens from pale gold to dark amber and back as you scroll. The hero art is cup rings drawn from the tasting data, and steam drifts with your cursor.
 
-<p align="center"><img src="docs/images/kettle-notes-before-after-phone.png" width="300" alt="Mobile website redesign before and after, made with Unswappable"></p>
+<p align="center"><img src="docs/images/kettle-notes-before-after-phone.png" width="300" alt="Mobile website redesign before and after, made with Sitecraft"></p>
 
 Run it yourself: `npx serve examples/kettle-notes/after`, then open the address it prints. The brief, both versions and the concept are in [`examples/kettle-notes`](examples/kettle-notes).
 
 ## Why AI-built websites all look the same
 
-Language models drift toward the most common design they have seen. Without a reason to do anything else, every page gets the same defaults. Most "anti-slop" prompts fix the symptoms: they ban purple and swap the font, but they leave the layout as it was. Unswappable fixes the cause. A site has to have an idea before it gets a style.
+Language models drift toward the most common design they have seen. Without a reason to do anything else, every page gets the same defaults. Most "anti-slop" prompts fix the symptoms: they ban purple and swap the font, but they leave the layout as it was. Sitecraft fixes the cause. A site has to have an idea before it gets a style.
 
 ## How it designs a website: the swap test
 
@@ -27,7 +27,7 @@ Language models drift toward the most common design they have seen. Without a re
 5. **Build every page and every state:** inner pages, menus, the mobile nav, forms in error and success, empty and loading states, page transitions and the 404.
 6. **Add a motion layer:** an entrance, scroll motion, feedback on every button, page transitions and one signature move. It stays smooth and switches off for visitors who prefer reduced motion.
 7. **Get a blind design review.** A fresh AI critic sees only screenshots and motion filmstrips. It names the feeling before it is told the intent, says whether it would stop scrolling, and scores 13 criteria. The page passes only when originality and feeling score 4 or more.
-8. **Verify and hand over.** It checks every page at six widths, then makes before/after images and puts every image in one `unswappable-output/` folder.
+8. **Verify and hand over.** It checks every page at six widths, then makes before/after images and puts every image in one `sitecraft-output/` folder.
 
 ## Redesign an existing website with Claude Code
 
@@ -35,13 +35,13 @@ Point it at a URL or a project folder. It captures the current site first, so yo
 
 ## Base44 apps: a public landing page and your own login
 
-Many Base44 apps make visitors log in before they see anything, so the landing page is hidden behind a login wall. When Unswappable finds a Base44 app, it:
+Many Base44 apps make visitors log in before they see anything, so the landing page is hidden behind a login wall. When Sitecraft finds a Base44 app, it:
 - asks the owner before switching the app to public
 - checks the data's security rules, so strangers can't read private records
 - styles the app's own login, sign-up and password-reset pages
 - keeps every private page behind login
 
-Details are in [`base44.md`](skills/unswappable/references/base44.md).
+Details are in [`base44.md`](skills/sitecraft/references/base44.md).
 
 ## What it checks: accessibility, SEO, speed and motion
 
@@ -61,15 +61,15 @@ Details are in [`base44.md`](skills/unswappable/references/base44.md).
 ## Install the Claude Code plugin
 
 ```
-/plugin marketplace add itsdanylol/unswappable
-/plugin install unswappable@unswappable
+/plugin marketplace add itsdanylol/claude-sitecraft
+/plugin install sitecraft@claude-sitecraft
 ```
 
 Or copy the skills into `~/.claude/skills`:
 
 ```bash
-git clone https://github.com/itsdanylol/unswappable
-cd unswappable
+git clone https://github.com/itsdanylol/claude-sitecraft
+cd claude-sitecraft
 ./install.sh            # macOS / Linux
 .\install.ps1           # Windows PowerShell
 ```
@@ -81,8 +81,8 @@ The scripts need **Node 18+** and **Playwright with Chromium**. The installers s
 Ask Claude in plain words, or call the skill:
 
 ```
-/unswappable make a site for my pottery studio
-/unswappable redo https://example.com
+/sitecraft make a site for my pottery studio
+/sitecraft redo https://example.com
 ```
 
 It stops once to show you the concept, the feeling it is going for, and a one-screen style tile. Say "just do it" to skip that stop.
@@ -90,7 +90,7 @@ It stops once to show you the concept, the feeling it is going for, and a one-sc
 ## FAQ
 
 **How do I make my AI-generated website not look AI-generated?**
-Give it an idea before a style. Unswappable writes three concepts from your product's own world, drops any that a competitor could also use, and builds every page from the winner. A blind critic then checks whether the result looks like something it has seen many times before.
+Give it an idea before a style. Sitecraft writes three concepts from your product's own world, drops any that a competitor could also use, and builds every page from the winner. A blind critic then checks whether the result looks like something it has seen many times before.
 
 **Why do vibe-coded websites all look the same?**
 The models fall back on the most common defaults: a centered hero, gradients, card grids and the Inter font. Swapping colors doesn't change that. A concept that shapes the layout, type, imagery and motion does.
@@ -115,9 +115,9 @@ Yes, under CC BY 4.0, as long as you give credit (see below).
 
 ## How to credit
 
-Unswappable is licensed under **[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)**. You may use, change and share it, including commercially, **but you must give credit**: name the project, link to it and to the license, and say if you changed it.
+Sitecraft is licensed under **[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)**. You may use, change and share it, including commercially, **but you must give credit**: name the project, link to it and to the license, and say if you changed it.
 
-> Built with [Unswappable](https://github.com/itsdanylol/unswappable) by itsdanylol, licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Includes [unslop](https://heydamir.design/unslop) by Damir Sokolovsky (CC BY 4.0).
+> Built with [Sitecraft](https://github.com/itsdanylol/claude-sitecraft) by itsdanylol, licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Includes [unslop](https://heydamir.design/unslop) by Damir Sokolovsky (CC BY 4.0).
 
 If you ship a modified version, add "Modified from the original." The bundled skills and the ideas adapted from other projects are credited in [NOTICE.md](NOTICE.md).
 

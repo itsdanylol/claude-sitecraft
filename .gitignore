@@ -5,7 +5,7 @@ node_modules/
 .motion*/
 .before/
 .after/
-unswappable-output/
+sitecraft-output/
 *.log
 .DS_Store
 Thumbs.db

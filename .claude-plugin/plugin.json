@@ -1,12 +1,12 @@
 {
-  "name": "unswappable",
+  "name": "sitecraft",
   "version": "1.0.0",
   "description": "Claude Code skill for websites that don't look AI-generated: builds or redesigns a whole site around one idea only your product could use, with a blind AI design critic, every page and state, a motion layer, accessibility and SEO checks, and before/after images.",
   "author": {
     "name": "itsdanylol"
   },
-  "homepage": "https://github.com/itsdanylol/unswappable",
-  "repository": "https://github.com/itsdanylol/unswappable",
+  "homepage": "https://github.com/itsdanylol/claude-sitecraft",
+  "repository": "https://github.com/itsdanylol/claude-sitecraft",
   "license": "CC-BY-4.0",
   "keywords": [
     "claude-code",

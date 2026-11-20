@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Read-only inventory of a repo for unswappable. Usage: scan.sh [path]
+# Read-only inventory of a repo for sitecraft. Usage: scan.sh [path]
 # Prints what the project is, how it builds, what the site contains, and facts to cite.
 set -u
 root="${1:-.}"

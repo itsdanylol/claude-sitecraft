@@ -56,5 +56,5 @@ Most dev servers print three things that matter: `Local: http://localhost:<port>
 - The URL you asked for returns the page you meant, not the router's fallback.
 - At 1440 wide: the first screen composes as a whole, no dead band, no horizontal scroll.
 - At 375 wide: nothing overlaps, no text under 11px, touch targets at least 44px.
-- Console: no errors, no failed requests. `unswappable/scripts/verify.mjs` captures both across widths.
+- Console: no errors, no failed requests. `sitecraft/scripts/verify.mjs` captures both across widths.
 - Fonts and images: loaded, no layout shift after they arrive.

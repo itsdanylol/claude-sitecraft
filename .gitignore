@@ -1,0 +1,12 @@
+node_modules/
+.verify*/
+.design*/
+.states*/
+.motion*/
+.before/
+.after/
+sitecraft-output/
+*.log
+.DS_Store
+Thumbs.db
+.claude/

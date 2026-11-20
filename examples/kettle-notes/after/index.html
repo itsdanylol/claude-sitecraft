@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kettle Notes — a tasting journal for independent tea shops</title>
+<meta name="description" content="Log every steep at the cupping table, compare this harvest with the last, and print shelf cards from your own notes. A fictional product for a design demo.">
+<link rel="canonical" href="https://kettlenotes.example/">
+<meta name="theme-color" content="#efe1b4">
+<meta property="og:title" content="Kettle Notes — every steep, written down">
+<meta property="og:description" content="A tasting journal for independent tea shops. Fictional product, design demo.">
+<meta property="og:image" content="https://kettlenotes.example/og.png">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=IBM+Plex+Mono&family=IBM+Plex+Sans&display=swap">
+<link rel="stylesheet" href="styles.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Kettle Notes","applicationCategory":"BusinessApplication","description":"A tasting journal for independent tea shops. Fictional product made for a design demo."}</script>
+<script src="rings.js" defer></script>
+</head>
+<body>
+<p class="demo-band">Design demo. Kettle Notes is a fictional product; the teas, notes and prices are examples</p>
+
+<main>
+  <!-- 1st steep: pale gold. Deal: giant number, text over art bottom-left -->
+  <section class="steep s1" aria-labelledby="h1">
+    <canvas class="rings" data-mode="hero" aria-hidden="true"></canvas>
+    <header class="nav wrap">
+      <a class="wordmark" href="./">Kettle <em>Notes</em></a>
+      <nav aria-label="Main"><a href="#log">Journal</a><a href="#cards">Shelf cards</a><a href="#plans">Pricing</a><a class="btn" href="#start">Start a journal</a></nav>
+    </header>
+    <p class="giant" aria-hidden="true">95°</p>
+    <div class="wrap hero-copy">
+      <p class="mark"><span>1st</span>95°C · 10s · honey, orchid, still thin</p>
+      <h1 id="h1">Every steep, <em>written down</em></h1>
+      <p class="lead">A tasting journal for independent tea shops. Log each infusion at the cupping table, compare this harvest with the last, and print the words that sell it.</p>
+      <p class="actions"><a class="btn btn-lg" href="#start">Start a journal</a><a class="quiet" href="#log">Scroll, and the page steeps</a></p>
+    </div>
+  </section>
+
+  <!-- 2nd steep: gold. Deal: two columns, offset vertically -->
+  <section class="steep s2" id="log" aria-labelledby="log-h">
+    <div class="wrap split">
+      <div class="col-text">
+        <p class="mark"><span>2nd</span>95°C · 15s · apricot skin, thick</p>
+        <h2 id="log-h">Write as you taste, not after</h2>
+        <p>Each infusion gets its own line. Temperature, time and leaf weight are picked, not typed, so the only thing you write is what is in the cup.</p>
+        <ol class="ways">
+          <li><em>Log</em> the steep while it is still warm</li>
+          <li><em>Compare</em> two harvests, infusion by infusion</li>
+          <li><em>Print</em> the words worth keeping for the shelf</li>
+        </ol>
+      </div>
+      <article class="log" aria-label="Example tasting log">
+        <div class="log-head"><div><h3>Mi Lan Xiang</h3><p>Phoenix Mountain · spring 2026</p></div><span class="cup" aria-hidden="true"></span></div>
+        <ol class="log-rows">
+          <li><span class="n">1st · 95°C · 10s</span><span>Honey and orchid, still thin</span></li>
+          <li class="now"><span class="n">2nd · 95°C · 15s</span><span>Apricot skin, thick, a finish that stays</span></li>
+          <li><span class="n">3rd · 95°C · 25s</span><span>Orchid comes back, light roast underneath</span></li>
+          <li><span class="n">4th · 98°C · 40s</span><span>Mineral, sweetness fading</span></li>
+        </ol>
+        <p class="log-foot"><span>7g · 100ml gaiwan</span><span>Decision: stock it</span></p>
+      </article>
+    </div>
+  </section>
+
+  <!-- 3rd steep: amber. Deal: full-bleed -->
+  <section class="steep s3" aria-labelledby="cmp-h">
+    <div class="wrap">
+      <p class="mark"><span>3rd</span>95°C · 25s · demo data</p>
+      <h2 id="cmp-h">This spring holds <em>two steeps longer</em> than last autumn</h2>
+    </div>
+    <figure class="bleed-chart">
+      <p class="yaxis" aria-hidden="true"><span>5 body</span><span>1</span></p>
+      <svg viewBox="0 0 1440 420" preserveAspectRatio="none" role="img" aria-labelledby="ct cd">
+        <title id="ct">Body by steep for two harvests of Mi Lan Xiang</title>
+        <desc id="cd">Demo data. Spring 2026 scores 3, 5, 5, 4, 4 and 3 over six steeps; autumn 2025 scores 4, 4, 3, 2, 1 and 1.</desc>
+        <g class="grid"><line x1="0" x2="1440" y1="40" y2="40"/><line x1="0" x2="1440" y1="135" y2="135"/><line x1="0" x2="1440" y1="230" y2="230"/><line x1="0" x2="1440" y1="325" y2="325"/><line x1="0" x2="1440" y1="400" y2="400"/></g>
+        <path class="autumn" d="M120 135 L360 135 L600 230 L840 325 L1080 400 L1320 400"/>
+        <path class="spring" d="M120 230 C 240 120, 280 40, 360 40 L600 40 C 700 40, 760 135, 840 135 L1080 135 C 1180 135, 1240 200, 1320 230"/>
+      </svg>
+      <p class="ticks" aria-hidden="true"><em>1st</em><em>2nd</em><em>3rd</em><em>4th</em><em>5th</em><em>6th</em></p>
+      <figcaption class="wrap chart-key">
+        <span><i class="k-spring"></i>Spring 2026, held 6 steeps</span>
+        <span><i class="k-autumn"></i>Autumn 2025, held 4</span>
+        <span>Body scored 1 to 5 per steep</span>
+      </figcaption>
+    </figure>
+  </section>
+
+  <!-- 4th steep: deep liquor. Deal: horizontal strip -->
+  <section class="steep s4" id="cards" aria-labelledby="cards-h">
+    <div class="wrap">
+      <p class="mark"><span>4th</span>98°C · 40s · mineral, deep</p>
+      <h2 id="cards-h">Shelf cards your customers <em>will actually read</em></h2>
+      <p class="lead">Written from your own notes: what it tastes like, how to brew it, what it costs. Printed at A6, they stand beside the tin.</p>
+      <p class="strip-hint" aria-hidden="true">Four teas · scroll sideways →</p>
+    </div>
+    <div class="strip" tabindex="0" role="region" aria-label="Example shelf cards, scroll sideways">
+      <article class="card c1"><p class="n">Oolong · Guangdong</p><h3>Mi Lan Xiang</h3><p class="words">Honey and orchid first, then apricot skin that stays long after the cup is empty.</p><p class="brew"><span class="n">95°C · 7g · 6 steeps</span><span class="price">£14 / 50g</span></p></article>
+      <article class="card c2"><p class="n">Oolong · Wuyi</p><h3>Da Hong Pao</h3><p class="words">Charcoal and dark cherry, a mineral backbone, sweet on the third cup.</p><p class="brew"><span class="n">98°C · 6g · 5 steeps</span><span class="price">£18 / 50g</span></p></article>
+      <article class="card c3"><p class="n">White · Fujian</p><h3>Bai Hao Yin Zhen</h3><p class="words">Hay, melon rind, a soft down on the tongue. Patient water rewards it.</p><p class="brew"><span class="n">80°C · 5g · 4 steeps</span><span class="price">£16 / 50g</span></p></article>
+      <article class="card c4"><p class="n">Green · Uji</p><h3>Gyokuro</h3><p class="words">Broth, sweet pea, sea air. Cool water and a slow first steep.</p><p class="brew"><span class="n">55°C · 6g · 3 steeps</span><span class="price">£22 / 50g</span></p></article>
+    </div>
+  </section>
+
+  <!-- 5th steep: fading amber. Re-dealt: two columns offset -->
+  <section class="steep s5" id="plans" aria-labelledby="plans-h">
+    <div class="wrap split">
+      <div class="col-text">
+        <p class="mark"><span>5th</span>98°C · 60s · fading, still sweet</p>
+        <h2 id="plans-h">Three plans, <em>no surprises</em></h2>
+        <p class="note">Demo prices for a fictional product</p>
+      </div>
+      <ul class="plans">
+        <li><h3>Counter</h3><p>One shop and up to 50 teas, shelf cards included</p><p class="price">Free</p></li>
+        <li><h3>Shop</h3><p>Every tea you stock, harvest comparison, your own card layout</p><p class="price">£9 <span>a month</span></p></li>
+        <li><h3>Group</h3><p>Several shops sharing one journal, each with its own stock</p><p class="price">£29 <span>a month</span></p></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 6th steep: almost water. Deal: text over art bottom-left -->
+  <section class="steep s6" id="start" aria-labelledby="start-h">
+    <canvas class="rings" data-mode="faint" aria-hidden="true"></canvas>
+    <div class="wrap end">
+      <p class="mark"><span>6th</span>100°C · 90s · almost water</p>
+      <h2 id="start-h">Start your first <em>tasting journal</em></h2>
+      <p class="lead">Bring tomorrow's samples. The first fifty teas are free.</p>
+      <form class="signup" action="thanks.html" method="get">
+        <label for="email">Shop email</label>
+        <span class="row"><input id="email" name="email" type="email" autocomplete="email" required placeholder="you@yourshop.co.uk"><button class="btn btn-lg" type="submit">Start a journal</button></span>
+        <span class="note">This is a demo. Nothing is sent or stored.</span>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="footer wrap">
+  <p>© 2026 Kettle Notes, a fictional product made for a design demo</p>
+  <nav aria-label="Footer"><a href="#log">Journal</a><a href="#cards">Shelf cards</a><a href="#plans">Pricing</a></nav>
+</footer>
+</body>
+</html>

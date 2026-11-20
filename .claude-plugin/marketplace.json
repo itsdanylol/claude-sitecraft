@@ -1,0 +1,11 @@
+{
+  "name": "sitecraft",
+  "owner": { "name": "itsdanylol" },
+  "plugins": [
+    {
+      "name": "sitecraft",
+      "source": "./",
+      "description": "Concept-first website builder and redesigner with a blind design critic, whole-site state checks, motion filmstrips and before/after images."
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "name": "sitecraft",
+  "version": "1.0.0",
+  "description": "Builds or redesigns a whole website around one original idea: concept first, every page and state, a real motion layer, a blind critic, quality checks, and diagonal before/after images. Bundles unslop, marketing, dataviz and run.",
+  "author": { "name": "itsdanylol" },
+  "homepage": "https://github.com/itsdanylol/sitecraft",
+  "repository": "https://github.com/itsdanylol/sitecraft",
+  "license": "CC-BY-4.0",
+  "keywords": ["website", "landing-page", "redesign", "design", "accessibility", "seo", "base44", "skills"]
+}

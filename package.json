@@ -1,14 +1,14 @@
 {
-  "name": "sitecraft",
+  "name": "unswappable",
   "version": "1.0.0",
   "private": true,
-  "description": "Scripts for the sitecraft Claude skill: browser checks, state sheets, motion filmstrips and before/after images.",
+  "description": "Scripts for the unswappable Claude skill: browser checks, state sheets, motion filmstrips and before/after images.",
   "type": "module",
   "license": "CC-BY-4.0",
   "engines": { "node": ">=18" },
   "scripts": {
     "setup": "npx playwright install chromium",
-    "check": "node --check skills/sitecraft/scripts/verify.mjs && node --check skills/sitecraft/scripts/states.mjs && node --check skills/sitecraft/scripts/motion.mjs && node --check skills/sitecraft/scripts/beforeafter.mjs && node --check skills/sitecraft/scripts/design-audit.mjs && node --check skills/sitecraft/scripts/with-server.mjs"
+    "check": "node --check skills/unswappable/scripts/verify.mjs && node --check skills/unswappable/scripts/states.mjs && node --check skills/unswappable/scripts/motion.mjs && node --check skills/unswappable/scripts/beforeafter.mjs && node --check skills/unswappable/scripts/design-audit.mjs && node --check skills/unswappable/scripts/with-server.mjs"
   },
   "devDependencies": { "playwright": "^1.48.0" }
 }

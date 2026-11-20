@@ -123,7 +123,7 @@ if (baseOrigin) {
   const sm = await get("/sitemap.xml");
   if (sm.status !== 200) site.push("no /sitemap.xml");
   else if (!/<urlset|<sitemapindex/.test(sm.text)) site.push("sitemap.xml is not a urlset or sitemap index");
-  const missing = await get(`/sitecraft-404-probe-${Date.now()}`);
+  const missing = await get(`/unswappable-404-probe-${Date.now()}`);
   if (missing.status === 200) failures.push("site: a missing URL returns 200, so there is no real 404 (soft 404)");
   else if (missing.status !== 404 && missing.status !== 410) site.push(`a missing URL returns ${missing.status}, expected 404`);
 }

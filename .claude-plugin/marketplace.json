@@ -1,11 +1,13 @@
 {
-  "name": "sitecraft",
-  "owner": { "name": "itsdanylol" },
+  "name": "unswappable",
+  "owner": {
+    "name": "itsdanylol"
+  },
   "plugins": [
     {
-      "name": "sitecraft",
+      "name": "unswappable",
       "source": "./",
-      "description": "Concept-first website builder and redesigner with a blind design critic, whole-site state checks, motion filmstrips and before/after images."
+      "description": "Websites that don't look AI-generated: concept-first design, a blind AI critic, whole-site state and motion checks, and before/after images."
     }
   ]
 }

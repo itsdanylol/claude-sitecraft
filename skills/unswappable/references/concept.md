@@ -36,7 +36,7 @@ There are no layout templates to pick from. Invent the layout from the concept:
 
 - Sketch three different first screens as ASCII wireframes, each made from the concept's own material. Do not reach for a known hero shape. Keep the one that says the idea fastest.
 - Give each section its own composition, drawn from what that section is in the concept. No two sections in a row share a shape.
-- Avoid repeating yourself across sites. Read `~/.sitecraft-history.md` if it exists. Do not reuse a hero shape, type pairing or concept listed there. When the site is done, append one line: date, product, concept, hero shape, type pairing.
+- Avoid repeating yourself across sites. Read `~/.unswappable-history.md` if it exists. Do not reuse a hero shape, type pairing or concept listed there. When the site is done, append one line: date, product, concept, hero shape, type pairing.
 
 ## 3. The vibe
 

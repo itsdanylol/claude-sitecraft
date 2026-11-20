@@ -1,5 +1,5 @@
 ﻿---
-name: sitecraft
+name: unswappable
 description: Builds a complete website from brief to a verified result, around one original idea. It researches the product, writes three concepts and keeps the boldest that fits, invents the layout with no templates, builds every page and state with a real motion layer, makes the imagery from the concept, then has a fresh critic judge screenshots and motion filmstrips blind before checking accessibility, SEO and speed. On a redesign it captures the old site first and ends with diagonal before/after PNGs. It opens Base44 apps to a public landing page with the app's own login. Use when the user asks to make, build, design, launch or redo a website, landing page, portfolio, product site or one-page app front end, or says a site looks generic, boring or AI-made.
 license: CC-BY-4.0
 metadata:
@@ -12,9 +12,9 @@ metadata:
     are independent rewrites.
 ---
 
-# Sitecraft
+# Unswappable
 
-Nobody remembers a tidy site. They remember one that *is* something: the idea is the product's own, and every page grows from it. Sitecraft finds that idea first, then builds every section from it, and only then polishes.
+Nobody remembers a tidy site. They remember one that *is* something: the idea is the product's own, and every page grows from it. Unswappable finds that idea first, then builds every section from it, and only then polishes.
 
 Clean is the floor, not the goal. A page with no slop and no idea is just a better template.
 
@@ -22,7 +22,7 @@ And it is the whole site, not a hero. Every page, every button and link state, e
 
 ## The run
 
-1. **Learn the product, and capture the before.** On a redesign, first run `scripts/beforeafter.mjs capture <url> --out sitecraft-output/.before`, before you change anything, so the old site is kept. If it is a Base44 app (an `@base44/sdk` dependency, a `base44Client` file, or a `*.base44.app` address), follow [base44.md](references/base44.md) all the way through. Then read what exists before asking anything: the repo, files, live site, the web, competitors, and the words customers use. Follow [research.md](references/research.md). Write `site-brief.md`, with a source on every fact. Map the whole site: every page and template, plus a state list covering every control and screen state. For an existing site, run `scripts/states.mjs` to crawl it and capture what is there today. Ask only about the gaps that are left, with a best guess for each.
+1. **Learn the product, and capture the before.** On a redesign, first run `scripts/beforeafter.mjs capture <url> --out unswappable-output/.before`, before you change anything, so the old site is kept. If it is a Base44 app (an `@base44/sdk` dependency, a `base44Client` file, or a `*.base44.app` address), follow [base44.md](references/base44.md) all the way through. Then read what exists before asking anything: the repo, files, live site, the web, competitors, and the words customers use. Follow [research.md](references/research.md). Write `site-brief.md`, with a source on every fact. Map the whole site: every page and template, plus a state list covering every control and screen state. For an existing site, run `scripts/states.mjs` to crawl it and capture what is there today. Ask only about the gaps that are left, with a best guess for each.
 
 2. **Find the idea, then stop.** Use [concept.md](references/concept.md):
    - Write three concepts from three territories: the name, the material, the place, the process, or a formal system.
@@ -50,7 +50,7 @@ And it is the whole site, not a hero. Every page, every button and link state, e
 
 7. **Verify.** Run `scripts/with-server.mjs` around `scripts/verify.mjs` (every page, at six widths) , `scripts/states.mjs` (every control and state) and `scripts/motion.mjs` (motion is present, smooth, and stops with reduced motion), then do the checks in [quality.md](references/quality.md): keyboard, contrast, SEO, page weight and security. Fix the most severe issues first. If a fix changes the look, render again.
 
-8. **Before and after, and the output folder.** Capture the new site with `scripts/beforeafter.mjs capture <url> --out sitecraft-output/.after`, then run `compose --before sitecraft-output/.before --after sitecraft-output/.after --out sitecraft-output/before-after --title "<site>"`. That gives a diagonal before/after PNG for every page at desktop and phone width. Gather every image into `sitecraft-output/`: `before-after/`, `screenshots/` (before and after), `states/`, `motion/` and `loading/`. Give the user the full path to that folder.
+8. **Before and after, and the output folder.** Capture the new site with `scripts/beforeafter.mjs capture <url> --out unswappable-output/.after`, then run `compose --before unswappable-output/.before --after unswappable-output/.after --out unswappable-output/before-after --title "<site>"`. That gives a diagonal before/after PNG for every page at desktop and phone width. Gather every image into `unswappable-output/`: `before-after/`, `screenshots/` (before and after), `states/`, `motion/` and `loading/`. Give the user the full path to that folder.
 9. **Report.** Cover the concept, what was built, the stack, the scores for each round with screenshots, the checks with their results, what was not verified, and what the user must supply. Do not publish, deploy, buy anything or create accounts without the user's yes.
 
 To improve an existing site, capture the before and score it first (step 6). Keep its brand, find the idea it is missing, and then follow steps 3 to 8.
@@ -80,7 +80,7 @@ To improve an existing site, capture the before and score it first (step 6). Kee
 
 ## Tools
 
-The sibling skills `marketing`, `unslop`, `dataviz` and `run` ship in the same repo. Installed as the Claude Code plugin, they are named `sitecraft:marketing`, `sitecraft:unslop`, `sitecraft:dataviz` and `sitecraft:run`; invoke whichever name the session lists. The scripts need Node 18+ and Playwright with Chromium.
+The sibling skills `marketing`, `unslop`, `dataviz` and `run` ship in the same repo. Installed as the Claude Code plugin, they are named `unswappable:marketing`, `unswappable:unslop`, `unswappable:dataviz` and `unswappable:run`; invoke whichever name the session lists. The scripts need Node 18+ and Playwright with Chromium.
 
 
 | Need | Use |

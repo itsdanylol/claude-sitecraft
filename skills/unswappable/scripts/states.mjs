@@ -201,7 +201,7 @@ for (const path of pages) {
 
 // ---------- the 404 ----------
 const nf = await browser.newPage({ viewport: { width: 1440, height: 900 } });
-const r404 = await nf.goto(new URL(`/sitecraft-missing-${Date.now()}`, origin).href).catch(() => null);
+const r404 = await nf.goto(new URL(`/unswappable-missing-${Date.now()}`, origin).href).catch(() => null);
 const notFound = join(outDir, "404-1440.png");
 await nf.screenshot({ path: notFound, fullPage: true }).catch(() => {});
 if (!r404 || r404.status() !== 404) findings.push(`a missing page returns ${r404 ? r404.status() : "nothing"}, not 404`);

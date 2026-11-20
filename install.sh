@@ -7,7 +7,7 @@ here="$(cd "$(dirname "$0")" && pwd)"
 dest="$HOME/.claude/skills"
 [ "${1:-}" = "--project" ] && dest="$(pwd)/.claude/skills"
 mkdir -p "$dest"
-for s in sitecraft unslop marketing dataviz run; do
+for s in unswappable unslop marketing dataviz run; do
   rm -rf "$dest/$s"
   cp -R "$here/skills/$s" "$dest/$s"
   echo "installed $s -> $dest/$s"
@@ -17,4 +17,4 @@ if command -v npm >/dev/null; then
 else
   echo "Node.js not found. Install Node 18+, then: npm i -g playwright && npx playwright install chromium"
 fi
-echo "Done. Ask Claude to build or redo a site, or type /sitecraft."
+echo "Done. Ask Claude to build or redo a site, or type /unswappable."

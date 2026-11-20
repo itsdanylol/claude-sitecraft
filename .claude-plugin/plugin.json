@@ -1,10 +1,27 @@
 {
-  "name": "sitecraft",
+  "name": "unswappable",
   "version": "1.0.0",
-  "description": "Builds or redesigns a whole website around one original idea: concept first, every page and state, a real motion layer, a blind critic, quality checks, and diagonal before/after images. Bundles unslop, marketing, dataviz and run.",
-  "author": { "name": "itsdanylol" },
-  "homepage": "https://github.com/itsdanylol/sitecraft",
-  "repository": "https://github.com/itsdanylol/sitecraft",
+  "description": "Claude Code skill for websites that don't look AI-generated: builds or redesigns a whole site around one idea only your product could use, with a blind AI design critic, every page and state, a motion layer, accessibility and SEO checks, and before/after images.",
+  "author": {
+    "name": "itsdanylol"
+  },
+  "homepage": "https://github.com/itsdanylol/unswappable",
+  "repository": "https://github.com/itsdanylol/unswappable",
   "license": "CC-BY-4.0",
-  "keywords": ["website", "landing-page", "redesign", "design", "accessibility", "seo", "base44", "skills"]
+  "keywords": [
+    "claude-code",
+    "claude-skill",
+    "ai-website-builder",
+    "website-redesign",
+    "landing-page",
+    "web-design",
+    "not-ai-generated",
+    "vibe-coding",
+    "design-critic",
+    "accessibility",
+    "seo",
+    "base44",
+    "motion",
+    "before-after"
+  ]
 }

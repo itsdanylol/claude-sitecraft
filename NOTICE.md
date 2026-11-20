@@ -1,5 +1,11 @@
 # Notices and credits
 
+sitecraft is © 2026 itsdanylol, licensed under CC BY 4.0 (full text in LICENSE). **Anyone who uses, shares or adapts it must give credit**, for example:
+
+> sitecraft by itsdanylol (https://github.com/itsdanylol/sitecraft), licensed under CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/). Modified from the original. *(the last sentence only if you changed it)*
+
+Keep the credits below for the bundled works as well.
+
 sitecraft bundles and adapts work from these projects. Ideas were paraphrased and the scripts in `skills/sitecraft/scripts/` are independent rewrites unless noted.
 
 ## Bundled skills

@@ -41,6 +41,10 @@ Many Base44 apps make visitors log in before they see anything, so the landing p
 - styles the app's own login, sign-up and password-reset pages
 - keeps every private page behind login
 
+**Connecting your app:**
+- **Base44 apps** need the Base44 connector. Connect Base44 in your connectors (in Claude Code, run `/mcp`), then ask again. Without it Sitecraft can't read or change the app.
+- **Every app that is not Base44** has no connector. Connect it to the code base instead: open Claude Code in the project folder, or add the repo to the session.
+
 Details are in [`base44.md`](skills/sitecraft/references/base44.md).
 
 ## What it checks: accessibility, SEO, speed and motion
@@ -103,7 +107,7 @@ The models fall back on the most common defaults: a centered hero, gradients, ca
 Yes. Give it the URL or the code. It captures the old site, keeps your brand, redesigns every page and state, and makes before/after images.
 
 **Does it work with Base44 apps that require a login?**
-Yes. With the owner's permission it makes the landing page public and styles the app's own login, while private pages and data stay protected.
+Yes, once the Base44 connector is connected. With the owner's permission it makes the landing page public and styles the app's own login, while private pages and data stay protected. Apps that are not Base44 don't use a connector: connect them to the code base by opening the project folder or repo in Claude Code.
 
 **Is it a template or a website builder?**
 Neither. It's a skill that guides Claude Code through research, concept, build, review and verification. It has no templates. Every layout is invented from the concept.

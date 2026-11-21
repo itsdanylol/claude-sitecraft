@@ -4,6 +4,13 @@ A Base44 app often makes visitors log in before they see anything. Then the land
 
 Facts here come from the Base44 platform API and the official `base44/skills` repo (SDK auth, platform-frontend and CLI references). When the Base44 MCP tools are connected, re-check them against `GET /api/apps/{app_id}/agent-profile` and the skill references it lists, because the platform changes.
 
+## Connect first
+
+Sitecraft can only change a Base44 app through the Base44 connector (the Base44 MCP tools). Without it, it cannot read the app, switch its visibility or edit its files.
+
+- **Base44 app:** check that the Base44 connector is connected before anything else. If it is not, stop and tell the owner in plain words: "This is a Base44 app, so I need the Base44 connector to work on it. Please connect Base44 in your connectors (in Claude Code, run `/mcp` and add Base44), then ask me again." If they cannot connect it, fall back to the manual steps in "What to change" and let the owner do the settings themselves.
+- **Every other site (not Base44):** there is no connector. Sitecraft works on the code itself, so the site's project folder or repo must be connected to the code base: open Claude Code in that folder, or add the repo to the session. For a live site with no code, give the URL and Sitecraft will capture it and build a new project folder.
+
 ## Spot it
 
 Any one of these means it is a Base44 app:

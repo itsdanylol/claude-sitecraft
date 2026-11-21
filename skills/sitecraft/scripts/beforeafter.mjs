@@ -10,7 +10,7 @@
 //      node beforeafter.mjs compose --before old.png --after https://new.site --out compare.png
 //
 // The old version fills the upper left, the new one the lower right, split by one diagonal line with labels.
-import { createRequire } from "node:module";
+import { findPlaywright } from "./_pw.mjs";
 import { existsSync, mkdirSync, readFileSync, readdirSync, statSync, writeFileSync } from "node:fs";
 import { basename, extname, join, resolve } from "node:path";
 
@@ -18,9 +18,7 @@ const argv = process.argv.slice(2);
 const mode = argv[0];
 const flag = (n, f) => { const i = argv.indexOf(n); return i >= 0 && argv[i + 1] ? argv[i + 1] : f; };
 // find playwright in the project being checked, then next to this script (npm install in the repo), then NODE_PATH
-const require = (name) => { for (const base of [join(process.cwd(), "package.json"), import.meta.url]) { try { return createRequire(base)(name); } catch {} } throw new Error(`cannot find ${name}`); };
-let chromium;
-try { ({ chromium } = require("playwright")); } catch { console.error("playwright not found: npm i -g playwright && npx playwright install chromium"); process.exit(2); }
+const { chromium } = findPlaywright();
 const slug = (p) => p.replace(/[/?#&=.]+/g, "-").replace(/^-|-$/g, "") || "index";
 const sizeFor = (w) => ({ width: w, height: w >= 768 ? 900 : 812 });
 

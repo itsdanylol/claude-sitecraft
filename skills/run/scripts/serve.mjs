@@ -1,6 +1,7 @@
 // serve.mjs — find the stack, start the site, wait until it answers, look at it, stop it.
 // usage: node serve.mjs [dir] [--port 4173] [--open] [--shot out.png] [--stop] [--detect] [--timeout 90]
 import { spawn, execFileSync } from "node:child_process";
+import { findPlaywright } from "./_pw.mjs";
 import { createServer } from "node:net";
 import { existsSync, mkdirSync, readFileSync, rmSync, writeFileSync, openSync } from "node:fs";
 import { createRequire } from "node:module";
@@ -249,7 +250,9 @@ if (has("--shot") || has("--open")) {
   const shot = flag("--shot", null);
   if (shot) {
     try {
-      const { chromium } = createRequire(join(process.cwd(), "package.json"))("playwright");
+      const pw = findPlaywright({ exit: false });
+      if (!pw) throw new Error("playwright not found");
+      const { chromium } = pw;
       const browser = await chromium.launch();
       const page = await browser.newPage({ viewport: { width: 1440, height: 900 } });
       await page.goto(url, { waitUntil: "load", timeout: 30000 });

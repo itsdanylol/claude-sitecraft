@@ -2,7 +2,7 @@
 // (mid-animation and settled) and of hovering the main action, audits every running animation, measures smoothness
 // while scrolling, and checks that reduced motion really reduces it. Writes a sheet per page plus motion.md.
 // usage: node motion.mjs <url> [--out .motion] [--pages /,/about] [--width 1440]
-import { createRequire } from "node:module";
+import { findPlaywright } from "./_pw.mjs";
 import { mkdirSync, writeFileSync } from "node:fs";
 import { join, resolve } from "node:path";
 
@@ -15,9 +15,7 @@ const width = Number(flag("--width", 1440)), height = width >= 768 ? 900 : 812;
 const origin = new URL(target).origin;
 const pages = flag("--pages", new URL(target).pathname).split(",").map((s) => s.trim()).filter(Boolean);
 // find playwright in the project being checked, then next to this script (npm install in the repo), then NODE_PATH
-const require = (name) => { for (const base of [join(process.cwd(), "package.json"), import.meta.url]) { try { return createRequire(base)(name); } catch {} } throw new Error(`cannot find ${name}`); };
-let chromium;
-try { ({ chromium } = require("playwright")); } catch { console.error("playwright not found: npm i -g playwright && npx playwright install chromium"); process.exit(2); }
+const { chromium } = findPlaywright();
 const slug = (p) => p.replace(/[/?#&=.]+/g, "-").replace(/^-|-$/g, "") || "index";
 const browser = await chromium.launch();
 const findings = [], report = [];

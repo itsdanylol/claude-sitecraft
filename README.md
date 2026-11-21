@@ -74,7 +74,9 @@ cd claude-sitecraft
 .\install.ps1           # Windows PowerShell
 ```
 
-The scripts need **Node 18+** and **Playwright with Chromium**. The installers set them up, or run `npm install && npx playwright install chromium` in the repo.
+The installers never replace a skill of the same name that they did not install (for example your own `dataviz` or `run`). They skip it and say so; add `--force` (`-Force` on Windows) to replace it.
+
+The scripts need **Node 18+** and **Playwright with Chromium**. The installers put Playwright in `~/.claude/skills/.sitecraft-deps`, where every script looks. The scripts also find it in the project you are checking, in a clone of this repo after `npm install`, in a global install, or in a folder named by `SITECRAFT_DEPS`. If you installed only the plugin, run `npm i -D playwright && npx playwright install chromium` in your project once.
 
 ## Use it
 
@@ -86,6 +88,8 @@ Ask Claude in plain words, or call the skill:
 ```
 
 It stops once to show you the concept, the feeling it is going for, and a one-screen style tile. Say "just do it" to skip that stop.
+
+A full run is long: research, three concepts, every page and state, up to three critic rounds and checks at six widths. For a single landing page or a rough draft, ask for **quick mode**: two concepts, one page with its nav, form and 404 states, one critic round and the core checks. It tells you what it skipped.
 
 ## FAQ
 

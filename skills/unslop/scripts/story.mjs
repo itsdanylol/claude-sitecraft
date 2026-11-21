@@ -1,5 +1,6 @@
 ﻿import { createRequire } from "node:module";
 import { createServer } from "node:http";
+import { findPlaywright } from "./_pw.mjs";
 import { existsSync, mkdirSync, readFileSync, rmSync, writeFileSync } from "node:fs";
 import { execFileSync } from "node:child_process";
 import { dirname, extname, join, resolve } from "node:path";
@@ -16,16 +17,7 @@ if (!input || (!out && !play)) {
 }
 
 async function browserKit() {
-  for (const name of ["playwright", "playwright-core"]) {
-    try {
-      return await import(name);
-    } catch {}
-    try {
-      return createRequire(join(process.cwd(), "package.json"))(name);
-    } catch {}
-  }
-  console.error("Playwright is not installed. In your project, run `npm install -D playwright` followed by `npx playwright install chromium`.");
-  process.exit(1);
+  return findPlaywright();
 }
 
 if (!play) {

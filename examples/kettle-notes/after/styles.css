@@ -5,7 +5,7 @@
   --display: "Instrument Serif", "Iowan Old Style", Georgia, serif;
   --sans: "IBM Plex Sans", system-ui, sans-serif;
   --mono: "IBM Plex Mono", Consolas, ui-monospace, monospace;
-  --steep: 900ms cubic-bezier(.3, .1, .2, 1);
+  --ease: cubic-bezier(.3, .1, .2, 1); --steep: 900ms var(--ease);
   --gutter: 40px;
 }
 *, *::before, *::after { box-sizing: border-box; }
@@ -21,7 +21,7 @@ a { color: inherit; }
 
 /* buttons: ink on light infusions, cream on dark ones */
 .btn { display: inline-flex; align-items: center; min-height: 44px; padding: 0 20px; border-radius: 999px; background: var(--ink); color: var(--cream);
-  font: 400 15px/1 var(--sans); letter-spacing: .01em; text-decoration: none; transition: transform 200ms var(--steep), background-color 300ms ease; }
+  font: 400 15px/1 var(--sans); letter-spacing: .01em; text-decoration: none; transition: transform 200ms var(--ease), background-color 300ms ease; }
 .btn:hover { background: #000; }
 .btn:active { transform: scale(.97); }
 .btn-lg { min-height: 56px; padding: 0 28px; font-size: 17px; }
@@ -175,3 +175,34 @@ h2 { font-size: clamp(44px, 5.4vw, 92px); line-height: .95; letter-spacing: -.03
   .s6 { min-height: 0; padding: 140px 0 96px; }
 }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition: none !important; animation: none !important; } }
+
+/* links answer the pointer: the underline is poured in, not switched on */
+.nav nav a:not(.btn), .wordmark, .footer a { text-decoration: underline; text-decoration-color: transparent; text-underline-offset: 6px; text-decoration-thickness: 1px; transition: text-decoration-color 300ms var(--ease); }
+.nav nav a:not(.btn):hover, .wordmark:hover, .footer a:hover { text-decoration-color: currentColor; }
+.quiet { transition: text-decoration-thickness 200ms var(--ease), text-underline-offset 200ms var(--ease); }
+.quiet:hover { text-decoration-thickness: 2px; text-underline-offset: 4px; }
+
+/* the steep: a section arrives in the previous infusion's color and deepens into its own */
+.steep { transition: background-color var(--steep); }
+.steep.unsteeped { background-color: var(--from); }
+.steep .mark span { display: inline-block; transition: transform var(--steep), opacity var(--steep); }
+.steep.unsteeped .mark span { transform: translateY(12px); opacity: 0; }
+
+/* the form's own error */
+.signup .error { font: 400 15px/1.4 var(--mono); color: #8a2a0c; }
+.signup input[aria-invalid="true"] { border-color: #8a2a0c; box-shadow: 0 0 0 1px #8a2a0c; }
+
+/* the phone menu: hidden on wide screens; without JavaScript the links simply stay */
+.menu-toggle { display: none; }
+@media (max-width: 639px) {
+  .js .menu-toggle { display: inline-flex; align-items: center; min-height: 44px; padding: 0 18px; border: 1px solid rgba(42,26,12,.4); border-radius: 999px; background: transparent; color: var(--ink); font: 400 15px/1 var(--mono); cursor: pointer; transition: background-color 300ms var(--ease); }
+  .js .menu-toggle:hover { background: rgba(42,26,12,.08); }
+  .nav { flex-wrap: wrap; }
+  html:not(.js) .nav nav a:not(.btn) { display: inline; }
+  html:not(.js) .nav nav { gap: 16px; flex-wrap: wrap; }
+  .js .nav nav { display: none; }
+  .js .nav.open { height: auto; align-content: flex-start; padding-top: 22px; padding-bottom: 16px; }
+  .js .nav.open nav { display: flex; flex-direction: column; align-items: flex-start; gap: 4px; width: 100%; padding-top: 12px; border-top: 1px solid rgba(42,26,12,.2); margin-top: 12px; }
+  .js .nav.open nav a:not(.btn) { display: block; font: 400 32px/1.1 var(--display); padding: 8px 0; }
+  .js .nav.open nav .btn { margin-top: 12px; }
+}

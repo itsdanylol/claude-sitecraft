@@ -3,7 +3,7 @@
 // Metrics are evidence for the design review in references/review.md, not a verdict on beauty.
 // usage: node design-audit.mjs <url|file> [--out .design] [--widths 1440,375] [--pages /,/about] [--max-pages 20] [--json] [--bold]
 // Use --bold when the concept deliberately uses saturated grounds or poster-scale type (concept.md).
-import { createRequire } from "node:module";
+import { findPlaywright } from "./_pw.mjs";
 import { existsSync, mkdirSync, writeFileSync } from "node:fs";
 import { join, resolve } from "node:path";
 import { pathToFileURL } from "node:url";
@@ -23,9 +23,7 @@ const bold = argv.includes("--bold");
 const maxPages = Number(flag("--max-pages", 20));
 
 // find playwright in the project being checked, then next to this script (npm install in the repo), then NODE_PATH
-const require = (name) => { for (const base of [join(process.cwd(), "package.json"), import.meta.url]) { try { return createRequire(base)(name); } catch {} } throw new Error(`cannot find ${name}`); };
-let chromium;
-try { ({ chromium } = require("playwright")); } catch { console.error("playwright not found: npm i -g playwright && npx playwright install chromium"); process.exit(2); }
+const { chromium } = findPlaywright();
 mkdirSync(outDir, { recursive: true });
 const slug = (p) => p.replace(/^https?:\/\/[^/]+/, "").replace(/[/?#&=]+/g, "-").replace(/^-|-$/g, "") || "index";
 
@@ -119,13 +117,27 @@ function measure() {
   // palette: background area and saturated hues
   const docArea = Math.max(1, document.documentElement.scrollWidth * document.documentElement.scrollHeight);
   const bgArea = {}; let accentArea = 0; const hues = new Set();
-  for (const el of document.querySelectorAll("body, body *")) {
+  // Count only the area each ground shows, not the area painted over by a nested ground.
+  // Without this, body + section + card add up, and the page reads as 186% color.
+  const grounds = [];
+  for (const el of document.querySelectorAll("html, body, body *")) {
     if (!visible(el)) continue;
     const c = parse(getComputedStyle(el).backgroundColor); if (!c || c.a < 0.5) continue;
-    const r = el.getBoundingClientRect(); const a = r.width * r.height;
-    bgArea[hex(c)] = (bgArea[hex(c)] || 0) + a;
-    const h = hsl(c); if (vivid(h)) { accentArea += a; hues.add(Math.round(h.h / 30)); }
+    const r = el.getBoundingClientRect();
+    grounds.push({ el, c, own: r.width * r.height });
   }
+  const byEl = new Map(grounds.map((g) => [g.el, g]));
+  for (const g of grounds) {
+    let p = g.el.parentElement;
+    while (p && !byEl.has(p)) p = p.parentElement;
+    if (p) byEl.get(p).own -= g.own;
+  }
+  for (const g of grounds) {
+    const a = Math.max(0, g.own); if (!a) continue;
+    bgArea[hex(g.c)] = (bgArea[hex(g.c)] || 0) + a;
+    const h = hsl(g.c); if (vivid(h)) { accentArea += a; hues.add(Math.round(h.h / 30)); }
+  }
+  accentArea = Math.min(accentArea, docArea);
   for (const [c] of Object.entries(textColors)) { const h = hsl(parse(`rgb(${parseInt(c.slice(1, 3), 16)},${parseInt(c.slice(3, 5), 16)},${parseInt(c.slice(5, 7), 16)})`)); if (vivid(h)) hues.add(Math.round(h.h / 30)); }
 
   // alignment lines: distinct left edges of block content

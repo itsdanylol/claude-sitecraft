@@ -1,0 +1,8 @@
+title: Claude Sitecraft
+description: A Claude Code skill for websites that don't look AI-generated. Builds or redesigns a whole site around one idea only your product could use, with a blind AI design critic, every page and state, motion, accessibility and SEO checks, and before/after images.
+exclude:
+  - skills
+  - node_modules
+  - package.json
+  - install.sh
+  - install.ps1

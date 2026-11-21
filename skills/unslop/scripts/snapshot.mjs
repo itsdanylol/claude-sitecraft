@@ -1,4 +1,5 @@
 import { createRequire } from "node:module";
+import { findPlaywright } from "./_pw.mjs";
 import { existsSync, mkdirSync, statSync, writeFileSync } from "node:fs";
 import { dirname, join, resolve } from "node:path";
 import { pathToFileURL } from "node:url";
@@ -42,16 +43,7 @@ if (!url || !out) {
 const target = statSync(url, { throwIfNoEntry: false })?.isFile() ? pathToFileURL(resolve(url)).href : url;
 
 async function browserKit() {
-  for (const name of ["playwright", "playwright-core"]) {
-    try {
-      return await import(name);
-    } catch {}
-    try {
-      return createRequire(join(process.cwd(), "package.json"))(name);
-    } catch {}
-  }
-  console.error("Playwright is not installed. In your project, run `npm install -D playwright` followed by `npx playwright install chromium`.");
-  process.exit(1);
+  return findPlaywright();
 }
 
 const chrome = [process.env.CHROME_PATH, "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome", "/usr/bin/google-chrome", "/usr/bin/chromium"].find((path) => path && existsSync(path));

@@ -3,7 +3,7 @@
 // opens menus and the mobile nav, submits forms empty and invalid, films loading on a slow connection,
 // and checks the 404. Writes contact sheets a critic can read and a report of missing states.
 // usage: node states.mjs <url> [--out .states] [--max-pages 40] [--max-controls 40] [--loading-pages 3] [--no-loading]
-import { createRequire } from "node:module";
+import { findPlaywright } from "./_pw.mjs";
 import { mkdirSync, writeFileSync } from "node:fs";
 import { join, resolve } from "node:path";
 
@@ -18,9 +18,7 @@ const loadingPages = argv.includes("--no-loading") ? 0 : Number(flag("--loading-
 const origin = new URL(target).origin;
 
 // find playwright in the project being checked, then next to this script (npm install in the repo), then NODE_PATH
-const require = (name) => { for (const base of [join(process.cwd(), "package.json"), import.meta.url]) { try { return createRequire(base)(name); } catch {} } throw new Error(`cannot find ${name}`); };
-let chromium;
-try { ({ chromium } = require("playwright")); } catch { console.error("playwright not found: npm i -g playwright && npx playwright install chromium"); process.exit(2); }
+const { chromium } = findPlaywright();
 mkdirSync(outDir, { recursive: true });
 const slug = (p) => p.replace(/[/?#&=.]+/g, "-").replace(/^-|-$/g, "") || "index";
 const browser = await chromium.launch();
@@ -55,7 +53,7 @@ if (queue.length && pages.length >= maxPages) findings.push(`stopped at ${maxPag
 const CONTROLS = "a[href], button, [role=button], [role=tab], [role=menuitem], summary, input:not([type=hidden]), select, textarea, [aria-expanded], [tabindex='0']";
 const styleKey = (el) => {
   const s = getComputedStyle(el);
-  return [s.color, s.backgroundColor, s.borderColor, s.boxShadow, s.outlineStyle, s.outlineColor, s.outlineWidth, s.textDecorationLine, s.textDecorationColor, s.transform, s.opacity, s.backgroundImage].join("|");
+  return [s.color, s.backgroundColor, s.borderColor, s.boxShadow, s.outlineStyle, s.outlineColor, s.outlineWidth, s.textDecorationLine, s.textDecorationColor, s.textDecorationThickness, s.textUnderlineOffset, s.transform, s.opacity, s.backgroundImage].join("|");
 };
 
 async function sheet(name, cells) {

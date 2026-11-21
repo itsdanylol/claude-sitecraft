@@ -5,7 +5,7 @@
 // Also checks head and SEO tags, page weight against budgets, robots/sitemap/404, WCAG 2.2 target size,
 // SRI, render-blocking scripts and removed focus rings. Wrap with with-server.mjs to start and stop the server.
 // exits 1 on a hard failure, so it can gate a build.
-import { createRequire } from "node:module";
+import { findPlaywright } from "./_pw.mjs";
 import { existsSync, mkdirSync, writeFileSync } from "node:fs";
 import { join, resolve } from "node:path";
 import { pathToFileURL } from "node:url";
@@ -38,15 +38,8 @@ const isFile = !/^https?:\/\//.test(target);
 const baseUrl = isFile ? pathToFileURL(resolve(target)).href : target;
 const baseOrigin = isFile ? null : new URL(baseUrl).origin;
 
-// find playwright in the project being checked, then next to this script (npm install in the repo), then NODE_PATH
-const require = (name) => { for (const base of [join(process.cwd(), "package.json"), import.meta.url]) { try { return createRequire(base)(name); } catch {} } throw new Error(`cannot find ${name}`); };
-let chromium;
-try {
-  ({ chromium } = require("playwright"));
-} catch {
-  console.error("playwright not found: npm i -g playwright && npx playwright install chromium");
-  process.exit(2);
-}
+// find playwright in the project, next to this script, beside the installed skills, or globally (see _pw.mjs)
+const { chromium } = findPlaywright();
 
 mkdirSync(outDir, { recursive: true });
 const slug = (p) => p.replace(/^https?:\/\/[^/]+/, "").replace(/[/?#&=]+/g, "-").replace(/^-|-$/g, "") || "index";

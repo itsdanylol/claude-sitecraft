@@ -5,10 +5,14 @@
   "description": "Scripts for the sitecraft Claude skill: browser checks, state sheets, motion filmstrips and before/after images.",
   "type": "module",
   "license": "CC-BY-4.0",
-  "engines": { "node": ">=18" },
+  "engines": {
+    "node": ">=18"
+  },
   "scripts": {
     "setup": "npx playwright install chromium",
-    "check": "node --check skills/sitecraft/scripts/verify.mjs && node --check skills/sitecraft/scripts/states.mjs && node --check skills/sitecraft/scripts/motion.mjs && node --check skills/sitecraft/scripts/beforeafter.mjs && node --check skills/sitecraft/scripts/design-audit.mjs && node --check skills/sitecraft/scripts/with-server.mjs"
+    "check": "node --check skills/sitecraft/scripts/verify.mjs && node --check skills/sitecraft/scripts/states.mjs && node --check skills/sitecraft/scripts/motion.mjs && node --check skills/sitecraft/scripts/beforeafter.mjs && node --check skills/sitecraft/scripts/design-audit.mjs && node --check skills/sitecraft/scripts/with-server.mjs && node --check skills/sitecraft/scripts/_pw.mjs"
   },
-  "devDependencies": { "playwright": "^1.48.0" }
+  "devDependencies": {
+    "playwright": "^1.48.0"
+  }
 }

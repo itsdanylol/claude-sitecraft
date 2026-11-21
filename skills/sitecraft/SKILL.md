@@ -55,6 +55,18 @@ And it is the whole site, not a hero. Every page, every button and link state, e
 
 To improve an existing site, capture the before and score it first (step 6). Keep its brand, find the idea it is missing, and then follow steps 3 to 8.
 
+## Quick mode
+
+The full run is long: research, three concepts, every page and state, up to three critic rounds and checks at six widths. Before starting, say so in one line, and offer quick mode when the job is small. Use quick mode when the user asks for it ("quick", "just a landing page", "rough draft", "one page"), or the site is a single page with no existing site to redesign. Quick mode keeps the idea and drops the volume:
+
+- **Research:** read what the user gave you and the live site, if any. Skip competitor and customer-language searches. The brief can be short, with sources still marked.
+- **Concept:** write two concepts, not three, and still kill the swappable one. Skip the ASCII wireframes and the style tile; show the concept and vibe in a few lines, and wait only if the user is present.
+- **Build:** one page, its nav (open and closed on phones), its form states and the 404. Motion: an entrance, control feedback and the one signature move.
+- **Review:** one critic round, not three. Same pass bar; if it fails, report the scores and the top fixes instead of looping.
+- **Verify:** `verify.mjs` and `states.mjs` on the page. Skip `motion.mjs` and before/after unless it is a redesign.
+
+Tell the user what quick mode skipped, so they can ask for the full run later.
+
 ## What makes it good
 
 - **One idea, everywhere.** It can be said in five words, it fails with a competitor's name, and it shapes every section.

@@ -2,6 +2,7 @@
 // No dependencies. Every block carries its source path so nothing in the brief is unattributable.
 // usage: node crawl.mjs <url|dir> [--out file.md] [--max 12] [--agent "marketing-skill"]
 import { existsSync, readFileSync, readdirSync, statSync, writeFileSync } from "node:fs";
+import { findPlaywright } from "./_pw.mjs";
 import { execFileSync } from "node:child_process";
 import { createRequire } from "node:module";
 import { basename, join, relative, resolve } from "node:path";
@@ -58,13 +59,7 @@ const PRICE = /(?:[$\u20ac\u00a3]\s?\d[\d,.]*|\d[\d,.]*\s?(?:USD|EUR|GBP)\b|per 
 // ---------- optional renderer, for client-rendered sites ----------
 let renderer = null;
 async function startRenderer() {
-  let chromium;
-  try {
-    ({ chromium } = createRequire(join(process.cwd(), "package.json"))("playwright"));
-  } catch {
-    console.error("--render needs playwright: npm i -g playwright && npx playwright install chromium");
-    process.exit(2);
-  }
+  const { chromium } = findPlaywright(); // --render needs it
   const browser = await chromium.launch();
   const page = await browser.newPage({ viewport: { width: 1440, height: 900 } });
   return {

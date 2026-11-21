@@ -18,7 +18,9 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=IBM+Plex+Mono&family=IBM+Plex+Sans&display=swap">
 <link rel="stylesheet" href="styles.css">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Kettle Notes","applicationCategory":"BusinessApplication","description":"A tasting journal for independent tea shops. Fictional product made for a design demo."}</script>
+<script>document.documentElement.classList.add("js")</script>
 <script src="rings.js" defer></script>
+<script src="site.js" defer></script>
 </head>
 <body>
 <p class="demo-band">Design demo. Kettle Notes is a fictional product; the teas, notes and prices are examples</p>
@@ -29,7 +31,8 @@
     <canvas class="rings" data-mode="hero" aria-hidden="true"></canvas>
     <header class="nav wrap">
       <a class="wordmark" href="./">Kettle <em>Notes</em></a>
-      <nav aria-label="Main"><a href="#log">Journal</a><a href="#cards">Shelf cards</a><a href="#plans">Pricing</a><a class="btn" href="#start">Start a journal</a></nav>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav">Menu</button>
+      <nav id="main-nav" aria-label="Main"><a href="#log">Journal</a><a href="#cards">Shelf cards</a><a href="#plans">Pricing</a><a class="btn" href="#start">Start a journal</a></nav>
     </header>
     <p class="giant" aria-hidden="true">95°</p>
     <div class="wrap hero-copy">
@@ -131,7 +134,8 @@
       <p class="lead">Bring tomorrow's samples. The first fifty teas are free.</p>
       <form class="signup" action="thanks.html" method="get">
         <label for="email">Shop email</label>
-        <span class="row"><input id="email" name="email" type="email" autocomplete="email" required placeholder="you@yourshop.co.uk"><button class="btn btn-lg" type="submit">Start a journal</button></span>
+        <span class="row"><input id="email" name="email" type="email" autocomplete="email" required placeholder="you@yourshop.co.uk" aria-describedby="email-error"><button class="btn btn-lg" type="submit">Start a journal</button></span>
+        <span class="error" id="email-error" role="alert" hidden></span>
         <span class="note">This is a demo. Nothing is sent or stored.</span>
       </form>
     </div>

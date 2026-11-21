@@ -6,6 +6,19 @@ Most AI-built and vibe-coded websites look the same: a centered hero, a purple g
 
 ![Before and after: a website redesign made with the Sitecraft Claude Code skill](docs/images/kettle-notes-before-after-desktop.png)
 
+## Start here: choose what you have
+
+Sitecraft asks you to choose first, and tells you what to connect before it starts:
+
+| You have | Choose | What you connect |
+| --- | --- | --- |
+| A Base44 app | **Base44 app** | The **Base44 connector**. Connect Base44 in your connectors (in Claude Code, run `/mcp`). |
+| A project folder or repo (any stack that is not Base44) | **Existing code** | Your **code base**. Open Claude Code in the project folder, or add the repo to the session. |
+| A live website, no code | **Live URL** | Nothing to connect. Give the URL. Sitecraft captures it and builds a new project folder. |
+| Nothing yet | **New site** | Nothing to connect. Sitecraft makes a new project folder. |
+
+If what it needs is not connected, Claude says so in plain words, tells you how to connect it, and waits. It does not guess or make up an app.
+
 ## Before and after: a full redesign
 
 **Kettle Notes** is a fictional tasting journal for tea shops, made up for this demo. The "before" is the first version made by an earlier, template-driven version of this skill. The "after" is the redesign. Its idea is *the page steeps like tea*: the six sections are six infusions, so the page's color deepens from pale gold to dark amber and back as you scroll. The hero art is cup rings drawn from the tasting data, and steam drifts with your cursor.
@@ -31,7 +44,7 @@ Language models drift toward the most common design they have seen. Without a re
 
 ## Redesign an existing website with Claude Code
 
-Point it at a URL or a project folder. It captures the current site first, so you keep the "before". It scores the current design blind, keeps your brand, finds the idea the site is missing, and rebuilds every page and state. Nothing is published or deployed without your yes.
+Choose **Live URL** or **Existing code** above. If you choose existing code, connect your code base first. It captures the current site first, so you keep the "before". It scores the current design blind, keeps your brand, finds the idea the site is missing, and rebuilds every page and state. Nothing is published or deployed without your yes.
 
 ## Base44 apps: a public landing page and your own login
 
@@ -41,9 +54,7 @@ Many Base44 apps make visitors log in before they see anything, so the landing p
 - styles the app's own login, sign-up and password-reset pages
 - keeps every private page behind login
 
-**Connecting your app:**
-- **Base44 apps** need the Base44 connector. Connect Base44 in your connectors (in Claude Code, run `/mcp`), then ask again. Without it Sitecraft can't read or change the app.
-- **Every app that is not Base44** has no connector. Connect it to the code base instead: open Claude Code in the project folder, or add the repo to the session.
+**Connecting:** Base44 apps need the Base44 connector. Every app that is not Base44 has no connector, so connect it to your code base instead. See [Start here](#start-here-choose-what-you-have).
 
 Details are in [`base44.md`](skills/sitecraft/references/base44.md).
 
@@ -84,7 +95,7 @@ The scripts need **Node 18+** and **Playwright with Chromium**. The installers p
 
 ## Use it
 
-Ask Claude in plain words, or call the skill:
+Ask Claude in plain words, or call the skill. If you don't say what you have, Claude asks you to choose from the list above and tells you what to connect:
 
 ```
 /sitecraft make a site for my pottery studio

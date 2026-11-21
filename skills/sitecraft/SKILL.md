@@ -22,6 +22,8 @@ And it is the whole site, not a hero. Every page, every button and link state, e
 
 ## The run
 
+0. **Choose and connect.** If the user has not said what they have, ask them to choose: a Base44 app, existing code (a project folder or repo), a live URL, or a new site. Then say what must be connected. Base44 app: the Base44 connector. Existing code: the code base, by opening Claude Code in the folder or adding the repo. Live URL or new site: nothing. If it is not connected, say so, explain how, and wait.
+
 1. **Learn the product, and capture the before.** On a redesign, first run `scripts/beforeafter.mjs capture <url> --out sitecraft-output/.before`, before you change anything, so the old site is kept. If it is a Base44 app (an `@base44/sdk` dependency, a `base44Client` file, or a `*.base44.app` address), follow [base44.md](references/base44.md) all the way through. A Base44 app needs the Base44 connector: if it is not connected, tell the owner to connect it and stop. Any app that is not Base44 has no connector, so its project folder or repo must be connected to the code base; if it is not, ask for that. Then read what exists before asking anything: the repo, files, live site, the web, competitors, and the words customers use. Follow [research.md](references/research.md). Write `site-brief.md`, with a source on every fact. Map the whole site: every page and template, plus a state list covering every control and screen state. For an existing site, run `scripts/states.mjs` to crawl it and capture what is there today. Ask only about the gaps that are left, with a best guess for each.
 
 2. **Find the idea, then stop.** Use [concept.md](references/concept.md):
